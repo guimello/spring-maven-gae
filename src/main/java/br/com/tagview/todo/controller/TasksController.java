@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import br.com.tagview.todo.dao.TaskDAO;
 import br.com.tagview.todo.exception.ResourceNotFoundException;
 import br.com.tagview.todo.model.Task;
@@ -111,5 +113,17 @@ public class TasksController {
 		}
 		
 		return task;
+	}
+
+	@RequestMapping(value="/custom/json/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, headers="Accept=application/json")
+	@ResponseBody
+	public String customShowJSON(@PathVariable Long id) throws JsonProcessingException {
+		Task task = dao.findById(id);
+		
+		if (task == null) {
+			throw new ResourceNotFoundException();
+		}
+		
+		return task.toJSON();
 	}
 }

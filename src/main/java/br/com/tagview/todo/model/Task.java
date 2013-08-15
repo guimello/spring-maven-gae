@@ -1,8 +1,14 @@
 package br.com.tagview.todo.model;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
@@ -11,10 +17,10 @@ public class Task {
 	@Id
 	private Long id;
 	
-	@NotNull @Size(min=1)
+	@NotBlank
 	private String name;
 
-	@NotNull @Size(min=1)
+	@NotBlank
 	private String description;
 	
 	public Task() {}
@@ -47,4 +53,17 @@ public class Task {
 		this.description = description;
 	}
 	
+	public String toJSON() throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> task = new HashMap<String, Object>();
+		task.put("le name", this.name);
+		task.put("le desc", this.description);
+		
+		List<Integer> numbers = new ArrayList<Integer>();
+		numbers.add(5);
+		numbers.add(7);
+		task.put("le addons", numbers);
+		
+		return mapper.writeValueAsString(task);
+	}
 }

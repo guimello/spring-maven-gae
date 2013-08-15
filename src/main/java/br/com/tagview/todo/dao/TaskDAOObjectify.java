@@ -24,8 +24,6 @@ public class TaskDAOObjectify implements TaskDAO {
 		return ofy().load().type(Task.class).list();
 	}
 
-
-
 	@Override
 	public Boolean destroy(Task task) {
 		ofy().delete().entity(task).now();
@@ -37,7 +35,4 @@ public class TaskDAOObjectify implements TaskDAO {
 		Key<Task> k = Key.create(Task.class, id);
 		return ofy().load().key(k).now();
 	}
-	
-
-
 }
