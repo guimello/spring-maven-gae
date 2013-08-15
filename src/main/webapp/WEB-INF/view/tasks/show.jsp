@@ -11,6 +11,8 @@
 	<body>
 		<h1>${task.name}</h1>
 		<a href="/">back</a>
+		<a href="/edit/${task.id}">edit</a>
+		<a href="/remove/${task.id}">remove</a>
 		<p>${task.description}</p>
 	</body>
 </html>

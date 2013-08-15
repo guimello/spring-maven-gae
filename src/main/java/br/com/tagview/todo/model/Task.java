@@ -9,13 +9,13 @@ import com.googlecode.objectify.annotation.Id;
 @Entity
 public class Task {
 	@Id
-	public Long id;
+	private Long id;
 	
 	@NotNull @Size(min=1)
-	public String name;
+	private String name;
 
 	@NotNull @Size(min=1)
-	public String description;
+	private String description;
 	
 	public Task() {}
 	
