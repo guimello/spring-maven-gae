@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<h1>${message}</h1>
-
+		<a href="/new">new</a>
 		<table>
 			<thead>
 				<tr>

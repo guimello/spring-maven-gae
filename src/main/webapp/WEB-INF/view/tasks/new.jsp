@@ -11,7 +11,7 @@
 		<title>new</title>
 	</head>
 	<body>
-		<form:form action="" method="POST" modelAttribute="task" >
+		<form:form action="/" method="POST" modelAttribute="task" >
 			<form:input path="name" class="input-large" />
 		    <form:errors path="name" cssClass="alert alert-error" />
 		    <form:input path="description" class="input-large" />
