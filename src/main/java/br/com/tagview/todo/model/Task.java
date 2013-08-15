@@ -1,5 +1,8 @@
 package br.com.tagview.todo.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
@@ -8,7 +11,10 @@ public class Task {
 	@Id
 	public Long id;
 	
+	@NotNull @Size(min=1)
 	public String name;
+
+	@NotNull @Size(min=1)
 	public String description;
 	
 	public Task() {}

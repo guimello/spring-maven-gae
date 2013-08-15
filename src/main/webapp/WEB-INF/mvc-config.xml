@@ -7,11 +7,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     
-         <context:component-scan
-            base-package="br.com.tagview.todo.controller"/>
+    <context:component-scan base-package="br.com.tagview.todo"/>
 
 
     <mvc:annotation-driven />
+    <!--  Autowired -->
+    <context:annotation-config />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <property name="prefix" value="/WEB-INF/view/"/>

@@ -25,6 +25,9 @@
 						<td>${task.id}</td>
 						<td>${task.name}</td>
 						<td>${task.description}</td>
+						<td><a href="/${task.id}">show</a></td>
+						<td><a href="/edit/${task.id}">edit</a></td>
+						<td><a href="/remove/${task.id}">remove</a></td><!-- for now -->
 					</tr>
 				</c:forEach>
 			</tbody>
