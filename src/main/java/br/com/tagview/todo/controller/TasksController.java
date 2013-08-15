@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.tagview.todo.dao.TaskDAO;
+import br.com.tagview.todo.exception.ResourceNotFoundException;
 import br.com.tagview.todo.model.Task;
 
 @Controller
@@ -57,7 +58,7 @@ public class TasksController {
 		Task task = dao.findById(id);
 		
 		if (task == null) {
-			
+			throw new ResourceNotFoundException();
 		}
 		
 		uiModel.addAttribute("task", task);
